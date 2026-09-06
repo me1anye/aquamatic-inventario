@@ -1,0 +1,118 @@
+// Lista de productos de Aquamatic, organizada por categoría.
+// Para AGREGAR un producto nuevo: copia una línea, cambia el id (debe ser único),
+// el nombre y el gramaje (si no aplica, deja gramaje: "").
+// Para BORRAR uno: elimina su línea completa.
+// id40, id41, id42 quedaron pendientes (no se veían en la foto) — agrégalos aquí cuando los tengas.
+
+const CATEGORIAS = [
+  {
+    categoria: "Empaques y accesorios",
+    productos: [
+      { id: "p1",  nombre: "Bolsa chica",            gramaje: "" },
+      { id: "p2",  nombre: "Bolsa grande",           gramaje: "" },
+      { id: "p3",  nombre: "Ganchos",                gramaje: "" },
+      { id: "p4",  nombre: "Shopping bag naranja",   gramaje: "" },
+      { id: "p5",  nombre: "Tarjeta Aquahorro",      gramaje: "" },
+      { id: "p6",  nombre: "Mallas",                 gramaje: "" },
+    ],
+  },
+  {
+    categoria: "Bebidas",
+    productos: [
+      { id: "p7",  nombre: "Agua Ciel",              gramaje: "600 ml" },
+      { id: "p8",  nombre: "Jugo Del Valle durazno",  gramaje: "" },
+      { id: "p9",  nombre: "Jugo Del Valle manzana",  gramaje: "" },
+      { id: "p10", nombre: "Coca Cola",               gramaje: "355 ml" },
+      { id: "p11", nombre: "Coca Cola",               gramaje: "600 ml" },
+      { id: "p12", nombre: "Sprite",                  gramaje: "" },
+      { id: "p13", nombre: "Fresca",                  gramaje: "" },
+      { id: "p14", nombre: "Sidral",                  gramaje: "" },
+    ],
+  },
+  {
+    categoria: "Limpieza y lavandería",
+    productos: [
+      { id: "p15", nombre: "Clorox",                  gramaje: "500 ml" },
+      { id: "p16", nombre: "Golondrina",               gramaje: "" },
+      { id: "p17", nombre: "Golondrina amarilla",      gramaje: "" },
+      { id: "p18", nombre: "Ariel polvo",              gramaje: "" },
+      { id: "p19", nombre: "ACE polvo",                gramaje: "" },
+      { id: "p20", nombre: "Vanish blanco",            gramaje: "" },
+      { id: "p21", nombre: "Pinol",                    gramaje: "250 ml" },
+      { id: "p22", nombre: "Pinol",                    gramaje: "500 ml" },
+      { id: "p23", nombre: "Cloralex",                 gramaje: "" },
+      { id: "p24", nombre: "Vanish rosa",              gramaje: "" },
+      { id: "p25", nombre: "Downy",                    gramaje: "360 ml" },
+      { id: "p26", nombre: "Downy",                    gramaje: "600 ml" },
+      { id: "p27", nombre: "Downy Color oscuro",       gramaje: "" },
+      { id: "p28", nombre: "Downy Color",              gramaje: "" },
+      { id: "p29", nombre: "Suavitel azul",            gramaje: "" },
+      { id: "p30", nombre: "Suavitel amarillo",        gramaje: "" },
+      { id: "p31", nombre: "Suavitel Carisma",         gramaje: "500 ml" },
+      { id: "p32", nombre: "Toallas de secado",        gramaje: "" },
+      { id: "p33", nombre: "Foca líquido",             gramaje: "" },
+      { id: "p34", nombre: "Roma líquido",             gramaje: "" },
+      { id: "p35", nombre: "Blanca Nieves líquido",    gramaje: "" },
+      { id: "p36", nombre: "Carisma líquido",          gramaje: "" },
+      { id: "p37", nombre: "Vinagre blanco",           gramaje: "" },
+      { id: "p38", nombre: "Ariel líquido",            gramaje: "" },
+      { id: "p39", nombre: "Persil líquido",           gramaje: "" },
+    ],
+  },
+  {
+    categoria: "Dulces y pastelitos",
+    productos: [
+      { id: "p43", nombre: "Canelitas",                gramaje: "" },
+      { id: "p44", nombre: "Barra fresa",              gramaje: "" },
+      { id: "p45", nombre: "Barra piña",               gramaje: "" },
+      { id: "p46", nombre: "Chocorroles",              gramaje: "" },
+      { id: "p47", nombre: "Gansito",                  gramaje: "" },
+      { id: "p48", nombre: "Polvorones",               gramaje: "" },
+      { id: "p49", nombre: "Pingüinos",                gramaje: "" },
+      { id: "p50", nombre: "Príncipe Azul",            gramaje: "" },
+      { id: "p51", nombre: "Submarino fresa",          gramaje: "" },
+      { id: "p52", nombre: "Submarino chocolate",      gramaje: "" },
+      { id: "p53", nombre: "Lors",                     gramaje: "" },
+      { id: "p54", nombre: "Tribitrakas",              gramaje: "" },
+      { id: "p55", nombre: "Sponch",                   gramaje: "" },
+      { id: "p72", nombre: "Panditas",                 gramaje: "" },
+      { id: "p73", nombre: "Mazapán",                  gramaje: "" },
+      { id: "p74", nombre: "Hershe's",                 gramaje: "" },
+      { id: "p75", nombre: "M&M's",                    gramaje: "" },
+      { id: "p76", nombre: "Skwinkles",                gramaje: "" },
+      { id: "p77", nombre: "Kinder Delice",            gramaje: "" },
+      { id: "p78", nombre: "Huevito Kinder",           gramaje: "" },
+      { id: "p79", nombre: "Kitkat",                   gramaje: "" },
+      { id: "p80", nombre: "Gomipop",                  gramaje: "" },
+      { id: "p81", nombre: "Pulparindo",               gramaje: "" },
+      { id: "p82", nombre: "Pelón Pelo Rico",          gramaje: "" },
+      { id: "p83", nombre: "Suavicremas",              gramaje: "" },
+    ],
+  },
+  {
+    categoria: "Botanas saladas",
+    productos: [
+      { id: "p56", nombre: "Sabritas Original",              gramaje: "" },
+      { id: "p57", nombre: "Sabritas Cremas y especias",     gramaje: "" },
+      { id: "p58", nombre: "Sabritas Adobadas",              gramaje: "" },
+      { id: "p59", nombre: "Sabritas Flaming Hot",           gramaje: "" },
+      { id: "p60", nombre: "Ruffles",                        gramaje: "" },
+      { id: "p61", nombre: "Ruffles queso",                  gramaje: "" },
+      { id: "p62", nombre: "Doritos Diablo",                 gramaje: "" },
+      { id: "p63", nombre: "Doritos Pizzerola",              gramaje: "" },
+      { id: "p64", nombre: "Doritos Nacho",                  gramaje: "" },
+      { id: "p65", nombre: "Doritos Flaming Hot",            gramaje: "" },
+      { id: "p66", nombre: "Doritos Dinamita",               gramaje: "" },
+      { id: "p67", nombre: "Fritos",                         gramaje: "" },
+      { id: "p68", nombre: "Rancheritos",                    gramaje: "" },
+      { id: "p69", nombre: "Chettos",                        gramaje: "" },
+      { id: "p70", nombre: "Chettos Flamin' Hot",            gramaje: "" },
+      { id: "p71", nombre: "Aqua Papas",                     gramaje: "" },
+    ],
+  },
+];
+
+// Lista plana de todos los productos (útil para búsquedas y totales)
+const TODOS_LOS_PRODUCTOS = CATEGORIAS.flatMap((cat) =>
+  cat.productos.map((p) => ({ ...p, categoria: cat.categoria }))
+);

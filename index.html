@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+<title>Aquamatic · Inventario</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- Franja de estado de conexión a Firebase -->
+<div id="banner-offline" class="banner-offline" hidden>
+  Sin base de datos conectada — se guarda solo en este celular. No hay comparación entre turnos.
+</div>
+
+<!-- ============ PANTALLA: INICIO ============ -->
+<section id="pantalla-inicio" class="pantalla activa">
+  <div class="hero">
+    <svg class="hero-ola" viewBox="0 0 400 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M0 60 C 50 20, 100 100, 150 60 S 250 20, 300 60 S 380 90, 400 60" stroke="#1FB6C9" stroke-width="6" stroke-linecap="round"/>
+      <path d="M0 85 C 50 55, 100 115, 150 85 S 250 55, 300 85 S 380 105, 400 85" stroke="#0C3B44" stroke-width="4" stroke-linecap="round" opacity="0.35"/>
+    </svg>
+    <p class="marca-eyebrow">Aquamatic</p>
+    <h1 class="titulo-hero">Inventario de tienda</h1>
+    <p class="subtitulo-hero">Cuenta cada producto, súmalo automático y descarga el reporte al terminar.</p>
+    <button id="btn-comenzar" class="btn btn-primario btn-grande">Comenzar inventario</button>
+    <button id="btn-historial" class="btn btn-texto">Ver inventarios anteriores</button>
+  </div>
+</section>
+
+<!-- ============ PANTALLA: DATOS DEL INVENTARIO ============ -->
+<section id="pantalla-datos" class="pantalla">
+  <header class="topbar">
+    <button class="btn-icono" data-volver="pantalla-inicio" aria-label="Regresar">←</button>
+    <h2>Datos del inventario</h2>
+  </header>
+
+  <form id="form-datos" class="form-datos">
+    <label class="campo">
+      <span class="campo-label">¿Quién está haciendo el conteo?</span>
+      <input type="text" id="input-responsable" placeholder="Tu nombre" required autocomplete="name" />
+    </label>
+
+    <fieldset class="campo">
+      <legend class="campo-label">Turno</legend>
+      <div class="turnos">
+        <label class="turno-opcion">
+          <input type="radio" name="turno" value="Matutino" required />
+          <span>Matutino</span>
+        </label>
+        <label class="turno-opcion">
+          <input type="radio" name="turno" value="Vespertino" />
+          <span>Vespertino</span>
+        </label>
+        <label class="turno-opcion">
+          <input type="radio" name="turno" value="Nocturno" />
+          <span>Nocturno</span>
+        </label>
+      </div>
+    </fieldset>
+
+    <p class="fecha-auto">Fecha: <span id="fecha-hoy"></span></p>
+
+    <button type="submit" class="btn btn-primario btn-grande">Ver productos</button>
+  </form>
+</section>
+
+<!-- ============ PANTALLA: CONTEO ============ -->
+<section id="pantalla-conteo" class="pantalla">
+  <header class="topbar topbar-conteo">
+    <button class="btn-icono" data-volver="pantalla-datos" aria-label="Regresar">←</button>
+    <div class="progreso-wrap">
+      <p class="progreso-texto"><span id="progreso-contados">0</span> de <span id="progreso-total">0</span> productos contados</p>
+      <div class="barra-progreso"><div id="barra-progreso-relleno" class="barra-progreso-relleno"></div></div>
+    </div>
+  </header>
+
+  <div class="buscador-wrap">
+    <input type="search" id="input-buscar" placeholder="Buscar producto…" class="input-buscar" />
+  </div>
+
+  <div id="lista-categorias" class="lista-categorias"><!-- Generado por JS --></div>
+
+  <div class="conteo-footer">
+    <button id="btn-observaciones" class="btn btn-secundario btn-grande">Continuar a observaciones</button>
+  </div>
+</section>
+
+<!-- ============ PANTALLA: OBSERVACIONES ============ -->
+<section id="pantalla-observaciones" class="pantalla">
+  <header class="topbar">
+    <button class="btn-icono" data-volver="pantalla-conteo" aria-label="Regresar">←</button>
+    <h2>Observaciones</h2>
+  </header>
+
+  <div class="obs-wrap">
+    <p class="obs-ayuda">¿Algo que reportar? Faltantes, productos dañados, diferencias raras, etc. Es opcional.</p>
+    <textarea id="input-observaciones" class="textarea-obs" rows="6" placeholder="Escribe aquí…"></textarea>
+
+    <div id="resumen-pendientes" class="resumen-pendientes" hidden>
+      <p class="resumen-pendientes-titulo">⚠ Aún no has contado <span id="num-pendientes">0</span> producto(s):</p>
+      <ul id="lista-pendientes" class="lista-pendientes"></ul>
+    </div>
+
+    <button id="btn-finalizar" class="btn btn-primario btn-grande">Finalizar inventario</button>
+  </div>
+</section>
+
+<!-- ============ PANTALLA: RESUMEN FINAL ============ -->
+<section id="pantalla-resumen" class="pantalla">
+  <div class="resumen-final">
+    <div class="check-circulo">✓</div>
+    <h2>Inventario guardado</h2>
+    <p id="resumen-detalle" class="resumen-detalle"></p>
+
+    <button id="btn-descargar-pdf" class="btn btn-primario btn-grande">Descargar PDF</button>
+    <button id="btn-nuevo-inventario" class="btn btn-texto">Hacer otro inventario</button>
+  </div>
+</section>
+
+<!-- ============ PANTALLA: HISTORIAL ============ -->
+<section id="pantalla-historial-lista" class="pantalla">
+  <header class="topbar">
+    <button class="btn-icono" data-volver="pantalla-inicio" aria-label="Regresar">←</button>
+    <h2>Inventarios anteriores</h2>
+  </header>
+  <div id="historial-contenido" class="historial-contenido">
+    <p class="historial-vacio">Cargando…</p>
+  </div>
+</section>
+
+<!-- ============ PANTALLA: DETALLE DE HISTORIAL ============ -->
+<section id="pantalla-historial-detalle" class="pantalla">
+  <header class="topbar">
+    <button class="btn-icono" data-volver="pantalla-historial-lista" aria-label="Regresar">←</button>
+    <h2 id="historial-detalle-titulo">Detalle</h2>
+  </header>
+  <div id="historial-detalle-contenido" class="historial-detalle-contenido"></div>
+  <div class="conteo-footer">
+    <button id="btn-descargar-pdf-historial" class="btn btn-secundario btn-grande">Descargar PDF de nuevo</button>
+  </div>
+</section>
+
+<!-- Librerías para generar PDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+
+<!-- Firebase (opcional — la app funciona sin esto, ver firebase-config.js) -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+<script src="firebase-config.js"></script>
+<script src="products.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
