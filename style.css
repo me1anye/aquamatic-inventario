@@ -72,7 +72,7 @@ button {
   padding: 32px 28px;
   gap: 6px;
 }
-.hero-ola { width: 220px; height: auto; margin-bottom: 8px; }
+.hero-logo { width: 132px; height: 132px; margin-bottom: 10px; border-radius: 50%; }
 .marca-eyebrow {
   font-family: var(--fuente-display);
   font-weight: 600;

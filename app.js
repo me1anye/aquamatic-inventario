@@ -405,26 +405,34 @@ function generarPDF(documento) {
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
 
+  if (typeof LOGO_BASE64 !== "undefined") {
+    try {
+      doc.addImage(LOGO_BASE64, "PNG", 14, 10, 20, 20);
+    } catch (e) {
+      console.error("No se pudo insertar el logo en el PDF:", e);
+    }
+  }
+
   doc.setFont("helvetica", "bold");
   doc.setFontSize(18);
   doc.setTextColor(12, 59, 68);
-  doc.text("AQUAMATIC", 14, 18);
+  doc.text("AQUAMATIC", 40, 20);
 
   doc.setFontSize(12);
   doc.setTextColor(31, 182, 201);
-  doc.text("Reporte de inventario", 14, 25);
+  doc.text("Reporte de inventario", 40, 27);
 
   doc.setFont("helvetica", "normal");
   doc.setFontSize(10);
   doc.setTextColor(60, 60, 60);
-  doc.text(`Fecha: ${documento.fecha}`, 14, 34);
-  doc.text(`Turno: ${documento.turno}`, 80, 34);
-  doc.text(`Responsable: ${documento.responsable}`, 140, 34, { maxWidth: 60 });
+  doc.text(`Fecha: ${documento.fecha}`, 14, 38);
+  doc.text(`Turno: ${documento.turno}`, 80, 38);
+  doc.text(`Responsable: ${documento.responsable}`, 140, 38, { maxWidth: 60 });
 
   const filas = documento.productos.map((p) => [p.nombre, p.gramaje || "-", String(p.total)]);
 
   doc.autoTable({
-    startY: 40,
+    startY: 46,
     head: [["Producto", "Gramaje", "Total"]],
     body: filas,
     headStyles: { fillColor: [12, 59, 68], textColor: 255 },
