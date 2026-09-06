@@ -11,6 +11,6 @@ App web para hacer el inventario de la tienda desde el celular: cada quien captu
 - Barra de progreso de cuántos productos llevas.
 - Observaciones libres antes de cerrar el inventario.
 - Al finalizar: descarga un PDF con el nombre Aquamatic, turno, responsable, fecha, tabla de producto/gramaje/total y observaciones.
-- Si conectas Firebase (ver abajo): guarda un historial de todos los inventarios y muestra, mientras cuentas, cuánto había del producto en el último inventario registrado (para comparar).
-- Guarda tu progreso automáticamente en el celular (localStorage) por si se cierra la página a medio conteo.
+- Conectada con Firebase: guarda un historial de todos los inventarios y muestra, mientras cuentas, cuánto había del producto en el último inventario registrado (para comparar).
+- Guarda el progreso automáticamente en el celular (localStorage) por si se cierra la página a medio conteo.
 
