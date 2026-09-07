@@ -3,7 +3,6 @@
 // el nombre y el gramaje (si no aplica, deja gramaje: "").
 // Para BORRAR uno: elimina su línea completa.
 // id40, id41, id42 quedaron pendientes (no se veían en la foto) — agrégalos aquí cuando los tengas.
-
 const CATEGORIAS = [
   {
     categoria: "Empaques y accesorios",
@@ -44,8 +43,8 @@ const CATEGORIAS = [
       { id: "p24", nombre: "Vanish rosa",              gramaje: "" },
       { id: "p25", nombre: "Downy",                    gramaje: "360 ml" },
       { id: "p26", nombre: "Downy",                    gramaje: "600 ml" },
-      { id: "p27", nombre: "Mas Color oscuro",       gramaje: "" },
-      { id: "p28", nombre: "Mas Color",              gramaje: "" },
+      { id: "p27", nombre: "Mas Color oscuro",         gramaje: "" },
+      { id: "p28", nombre: "Mas Color",                gramaje: "" },
       { id: "p29", nombre: "Suavitel azul",            gramaje: "" },
       { id: "p30", nombre: "Suavitel amarillo",        gramaje: "" },
       { id: "p31", nombre: "Suavitel Carisma",         gramaje: "500 ml" },
@@ -57,6 +56,11 @@ const CATEGORIAS = [
       { id: "p37", nombre: "Vinagre blanco",           gramaje: "" },
       { id: "p38", nombre: "Ariel líquido",            gramaje: "" },
       { id: "p39", nombre: "Persil líquido",           gramaje: "" },
+      { id: "p92", nombre: "Clorox ropa de color",           gramaje: "500 ml" },
+      { id: "p93", nombre: "Ariel Revitacolor líquido",      gramaje: "400 ml" },
+      { id: "p94", nombre: "Ariel líquido",                  gramaje: "800 ml" },
+      { id: "p95", nombre: "ACE líquido",                    gramaje: "800 ml" },
+      { id: "p96", nombre: "Suavitel Carisma sándalo",       gramaje: "1 lt" },
     ],
   },
   {
@@ -72,12 +76,12 @@ const CATEGORIAS = [
       { id: "p50", nombre: "Príncipe Azul",            gramaje: "" },
       { id: "p51", nombre: "Submarino fresa",          gramaje: "" },
       { id: "p52", nombre: "Submarino chocolate",      gramaje: "" },
-      { id: "p53", nombre: "Lords",                     gramaje: "" },
-      { id: "p54", nombre: "Triki-trakes",              gramaje: "" },
+      { id: "p53", nombre: "Lords",                    gramaje: "" },
+      { id: "p54", nombre: "Triki-trakes",             gramaje: "" },
       { id: "p55", nombre: "Sponch",                   gramaje: "" },
       { id: "p72", nombre: "Panditas",                 gramaje: "" },
       { id: "p73", nombre: "Mazapán",                  gramaje: "" },
-      { id: "p74", nombre: "Hershey's",                 gramaje: "" },
+      { id: "p74", nombre: "Hershey's",                gramaje: "" },
       { id: "p75", nombre: "M&M's",                    gramaje: "" },
       { id: "p76", nombre: "Skwinkles",                gramaje: "" },
       { id: "p77", nombre: "Kinder Delice",            gramaje: "" },
@@ -107,7 +111,7 @@ const CATEGORIAS = [
       { id: "p68", nombre: "Rancheritos",                    gramaje: "" },
       { id: "p69", nombre: "Chettos",                        gramaje: "" },
       { id: "p70", nombre: "Chettos Flamin' Hot",            gramaje: "" },
-      { id: "p71", nombre: "AquaPapas",                     gramaje: "" },
+      { id: "p71", nombre: "AquaPapas",                      gramaje: "" },
     ],
   },
 ];
