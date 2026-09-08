@@ -39,7 +39,7 @@ const CATEGORIAS = [
     ],
   },
   {
-    categoria: "Limpieza y lavandería",
+    categoria: "Productos de lavandería - Venta",
     productos: [
       { id: "p15", nombre: "Clorox",                  gramaje: "500 ml" },
       { id: "p16", nombre: "Golondrina",               gramaje: "40 grs" },
