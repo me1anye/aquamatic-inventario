@@ -23,7 +23,7 @@ const CATEGORIAS = [
       { id: "p8",   nombre: "Jugo Del Valle durazno",        gramaje: "413 ml (vidrio)" },
       { id: "p9",   nombre: "Jugo Del Valle manzana",        gramaje: "413 ml (vidrio)" },
       { id: "p130", nombre: "Jugo Del Valle mango",        gramaje: "413 ml (vidrio)" },
-      { id: "p10",  nombre: "Coca Cola",                     gramaje: "355 ml" },
+      { id: "p10",  nombre: "Coca Cola",                     gramaje: "355 ml (lata)" },
       { id: "p11",  nombre: "Coca Cola",                     gramaje: "600 ml" },
       { id: "p12",  nombre: "Sprite",                        gramaje: "600 ml" },
       { id: "p13",  nombre: "Fresca",                        gramaje: "600 ml" },
